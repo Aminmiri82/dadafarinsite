@@ -1,3 +1,50 @@
 .download-button {
     margin: 5% 3% 5% 0;
 }
+
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Ubuntu', sans-serif;
+    background-color: #f0f4f8; /* A soft light blue background */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .container-fluid {
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow around the content */
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333333; /* Dark gray for headings */
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666; /* Medium gray for paragraph text */
+  }
+  
+  button {
+    margin: 10px;
+  }
+  
+  #download {
+    margin-bottom: 50px;
+  }
+  
+  #privacyPolicy p {
+    margin: 20px 0;
+  }
+  
