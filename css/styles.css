@@ -19,9 +19,10 @@ body, html {
   .container-fluid {
     max-width: 800px;
     padding: 20px;
-    background-color: #ffffff; /* White background for the content */
+    background-color: #5970f2; /* White background for the content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow around the content */
     border-radius: 10px;
+    align-items: center;
   }
   
   h1 {
