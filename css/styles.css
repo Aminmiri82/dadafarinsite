@@ -47,9 +47,18 @@ p {
   height: auto;
   text-align: center;
 }
-.shecanImg{
+/* .shecanImg{
   text-align: center;
+  flex-direction: row;
+} */
+
+.shecanImg {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensures vertical alignment */
+  gap: 10px; /* Optional: adds some space between the items */
 }
+
 .button-container {
   text-align: center;
 }
