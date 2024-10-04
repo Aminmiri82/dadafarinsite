@@ -47,10 +47,6 @@ p {
   height: auto;
   text-align: center;
 }
-/* .shecanImg{
-  text-align: center;
-  flex-direction: row;
-} */
 
 .shecanImg {
   display: flex;
