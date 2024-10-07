@@ -58,3 +58,10 @@ p {
 .button-container {
   text-align: center;
 }
+
+.copyright {
+  font-size: small;
+  color: #000000;
+  text-align: center;
+  align-items: center;
+}
