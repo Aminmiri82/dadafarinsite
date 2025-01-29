@@ -65,3 +65,14 @@ p {
   text-align: center;
   align-items: center;
 }
+
+.enlarged {
+  transform: scale(1.5);
+  transition: transform 0.25s ease;
+}
+
+img {
+  transition: transform 0.25s ease;
+  cursor: pointer;
+  /* Add other default image styles */
+}
