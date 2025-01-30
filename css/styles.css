@@ -89,3 +89,14 @@ body {
   background-attachment: fixed;
   color: white; /* Ensures text is readable on dark backgrounds */
 }
+
+@media (max-width: 768px) {
+  .enlarged {
+    transform: scale(3);
+  }
+}
+
+img {
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
