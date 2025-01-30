@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Vazir';
+  src: url('../fonts/Vazir.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .download-button {
     margin: 10px;
 }
@@ -88,6 +95,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white; /* Ensures text is readable on dark backgrounds */
+  font-family: 'Vazir' , sans-serif !important;
 }
 
 @media (max-width: 768px) {
