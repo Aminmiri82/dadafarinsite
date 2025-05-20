@@ -11,6 +11,7 @@ venv/
 env/
 *.py[cod]
 *.pyo
+*.env
 
 # VS Code
 .vscode/
