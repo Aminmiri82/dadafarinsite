@@ -125,7 +125,7 @@ img {
 .logo-left,
 .logo-right {
   max-width: 120px; /* Adjust size as needed */
-  height: auto;
+  height: 120px;
 }
 
 @media (max-width: 768px) {
