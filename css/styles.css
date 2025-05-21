@@ -113,3 +113,30 @@ img {
   transition: transform 0.25s ease;
   cursor: pointer;
 }
+
+.logo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+}
+
+.logo-left,
+.logo-right {
+  max-width: 120px; /* Adjust size as needed */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .logo-left,
+  .logo-right {
+    max-width: 60%;
+  }
+}
