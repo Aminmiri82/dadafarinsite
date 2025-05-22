@@ -6,7 +6,10 @@
 }
 
 .download-button {
-    margin: 10px;
+    /* margin: 10px; */
+    width: 300px;            /* Set all buttons to the same width */
+    max-width: 90%;          /* Make it responsive */
+    text-align: center;
 }
   
 .container-fluid {
@@ -68,6 +71,11 @@ h3 {
 
 .button-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;  /* Stack vertically */
+  align-items: center;     /* Center buttons horizontally */
+  gap: 15px;               /* Space between buttons */
+  margin-top: 20px;
 }
 
 .copyright {

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Keep all the previous CSS styles */
+        /* Add this new style for error messages */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            direction: rtl;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            color: #34495e;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #27ae60;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1>تماس با ما</h1>
+        <p>آدرس: شیراز، کوی دانشگاه، ساختمان 9 دی</p>
+        <p>شماره تماس: 07136460327</p>
+        <form 
+            class="contact-form" 
+            action="https://formspree.io/f/xanozdvb" 
+            method="POST"
+            id="contactForm"
+        >
+            <div class="form-group">
+                <label for="message" style="direction: rtl;">پیام</label>
+                <textarea id="message" name="message" required></textarea>
+                <div class="error-message" id="messageError"></div>
+            </div>
+
+            <!-- Add hidden field to specify recipient -->
+            <input type="hidden" name="_to" value="zr@dadafarin.net">
+            
+            <button type="submit" class="submit-btn" style="direction: rtl;">برای ارسال پیام اینجا را کلیک کنید</button>
+            <div class="success-message" id="successMessage">
+                ایمیل با موفقیت ارسال شد
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get FORM ELEMENTS (not just values)
+            const messageElement = document.getElementById('message');
+    
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            let isValid = true;
+    
+            // Validation function
+            const showError = (elementId, message) => {
+                document.getElementById(elementId).textContent = message;
+                document.getElementById(elementId).style.display = 'block';
+                isValid = false;
+            };
+    
+            // Name validation (use .value on the ELEMENT)
+            if (nameElement.value.trim() === '') {
+                showError('nameError', 'لطفا نام خود را وارد کنید');
+            }
+    
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailElement.value.trim() === '') {
+                showError('emailError', 'لطفا ایمیل خود را وارد کنید');
+            } else if (!emailRegex.test(emailElement.value)) {
+                showError('emailError', 'لطفا یک آدرس ایمیل معتبر وارد کنید');
+            }
+    
+            // Subject validation
+            if (subjectElement.value.trim() === '') {
+                showError('subjectError', 'لطفا موضوع را وارد کنید');
+            }
+    
+            // Message validation
+            if (messageElement.value.trim() === '') {
+                showError('messageError', 'لطفا پیام خود را وارد کنید');
+            }
+    
+            if (isValid) {
+                // Submit the form
+                fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('successMessage').style.display = 'block';
+                        this.reset();
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        alert('خطایی در ارسال پیام رخ داده است. لطفا مجددا تلاش کنید.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('خطایی در ارسال پیام رخ داده است. لطفا مجددا تلاش کنید.');
+                });
+            }
+        });
+    
+        // Clear errors on input
+        document.querySelectorAll('input, textarea').forEach(element => {
+            element.addEventListener('input', () => {
+                document.getElementById(element.id + 'Error').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
