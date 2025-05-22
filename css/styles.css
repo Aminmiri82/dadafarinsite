@@ -70,7 +70,7 @@ h3 {
 }
 
 .button-container {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;  /* Stack vertically */
   align-items: center;     /* Center buttons horizontally */
