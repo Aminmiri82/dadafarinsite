@@ -159,22 +159,10 @@
             };
     
             // Name validation (use .value on the ELEMENT)
-            if (nameElement.value.trim() === '') {
-                showError('nameError', 'لطفا نام خود را وارد کنید');
-            }
     
             // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (emailElement.value.trim() === '') {
-                showError('emailError', 'لطفا ایمیل خود را وارد کنید');
-            } else if (!emailRegex.test(emailElement.value)) {
-                showError('emailError', 'لطفا یک آدرس ایمیل معتبر وارد کنید');
-            }
     
             // Subject validation
-            if (subjectElement.value.trim() === '') {
-                showError('subjectError', 'لطفا موضوع را وارد کنید');
-            }
     
             // Message validation
             if (messageElement.value.trim() === '') {
@@ -211,7 +199,11 @@
         // Clear errors on input
         document.querySelectorAll('input, textarea').forEach(element => {
             element.addEventListener('input', () => {
-                document.getElementById(element.id + 'Error').style.display = 'none';
+                const errorElement = document.getElementById(element.id + 'Error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+
             });
         });
     </script>
